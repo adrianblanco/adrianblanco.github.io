@@ -1,0 +1,388 @@
+/*** RESET ***/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/** Fonts **/
+
+@font-face {
+  font-family: spark;
+  src: url(AtFSpark/spark-bar-medium.woff);
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+@font-face {
+  font-family: sparkline;
+  src: url(AtFSpark/spark-dotline-medium.woff);
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+
+@font-face {
+  font-family: sparkdot;
+  src: url(AtFSpark/spark-dot-medium.woff);
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+@font-face {
+  font-family: sparkdotsmall;
+  src: url(AtFSpark/spark-dot-small.woff);
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+@font-face {
+  font-family: sparknarrow;
+  src: url(AtFSpark/spark-bar-narrow.woff);
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+@font-face {
+  font-family: sparkthin;
+  src: url(AtFSpark/spark-bar-thin.woff),url();
+  font-variant-ligatures: contextual;
+  -moz-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt";
+}
+
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+
+/** Fonts ends **/
+
+/** Icons**/
+
+@font-face {
+      font-family: 'fontello';
+      src: url('font/fontello.eot?34742892');
+      src: url('font/fontello.eot?34742892#iefix') format('embedded-opentype'),
+           url('font/fontello.woff?34742892') format('woff'),
+           url('font/fontello.ttf?34742892') format('truetype'),
+           url('font/fontello.svg?34742892#fontello') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+/** **/
+
+span.barchart {
+  font-family: spark;
+  font-size: 1.3em;
+  color: orange;
+  line-height: 0.5em;
+}
+span.linechart {
+    font-family: sparkline;
+  font-size: 24px;
+  color: orange;
+}
+span.dotchart {
+    font-family: sparkdot;
+  font-size: 24px;
+  color: orange;
+}
+span.dotchartsmall {
+    font-family: sparkdotsmall;
+  font-size: 24px;
+  color: orange;
+}
+span.barchartthin {
+    font-family: sparkthin;
+  font-size: 24px;
+  color: orange;
+}
+span.barchartnarrow {
+    font-family: sparknarrow;
+  font-size: 24px;
+  color: orange;
+}
+
+/** fonts visuals ends **/
+
+/**
+* {
+    box-sizing: border-box;
+}
+**/
+
+body {
+    padding: 3em 3em;
+    background-color: #fff;
+    font-family: Fira Code;
+    font-weight: 300;
+}
+
+::selection {
+  background: #fff2a8;
+}
+::-moz-selection {
+  background: #fff2a8;
+}
+
+/* Center website */
+.main {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: -0.1em;
+    word-spacing: -0.1em;
+    text-align: center;
+    padding-bottom: 0.3em;
+}
+
+.rrss {
+  font-size: 1.4em;
+  padding: 0em 2em 1.5em 2em;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 600;
+  margin: 1em 0 0.2em 0;
+  text-align: center;
+  height: 2.5em;
+}
+
+span.title:hover {
+    background-color: #fff2a8;
+}
+
+p {
+    margin: 0.2em 0 0 0;
+}
+
+.row {
+    margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33%;
+    box-sizing: border-box;
+}
+
+/* Clear floats after rows */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+
+.bio {
+    padding: 0 2em;
+    line-height: 1.5em;
+}
+
+.journocoders {
+  font-weight: 600;
+  color: purple;
+}
+
+
+
+.content {
+    background-color: ;
+    padding: 0 2em;
+    height: 28em;
+}
+
+.description {
+    font-size: 0.95em;
+    text-align: left;
+    text-justify: inter-character;
+    word-break: normal;
+    hyphens: auto;
+}
+
+.date {
+  text-align: right;
+  font-size: 0.8em;
+  padding-bottom: 0.5em;
+}
+
+.nomargin {
+  margin: 0;
+}
+
+a, a:visited {
+  color: black;
+  decoration: none;
+  text-decoration: none;
+}
+
+footer {
+  margin: 2em 0 0 0;
+  border-top: 0.05em solid black;
+  /**box-shadow: 0.2em 0.2em 0.1em blue;**/
+  text-align: right;
+}
+
+ul {
+  list-style: none;
+  margin-top: 0.5em;
+}
+
+.itemimage {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: all 0.5s ;
+    box-shadow: 0.1em 0.1em 1em 0.03em black;
+}
+
+.itemimage:hover {
+  -webkit-filter: none; /* Safari 6.0 - 9.0 */
+    filter: none;
+    transform:scale(1.05);
+}
+
+.menuitem {
+  display: inline;
+  margin: 0 10px;
+}
+
+.demo-icon
+{
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* You can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 3000px) {
+.bio {
+    padding: 0 6.5em 1em 6.5em;
+}
+}
+
+@media (max-width: 950px) {
+    .column {
+        width: 50%;
+    }
+    .content {
+          background-color: ;
+          padding: 0 2em;
+          height: 32em;
+      }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+  body {
+      padding: 3em 7em;
+  }
+  .bio {
+      padding: 0 1.3em;
+  }
+    .column {
+        width: 100%;
+    }
+    .content {
+        background-color: ;
+        padding: 0 2em;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .column {
+        width: 100%;
+    }
+        .content {
+          height: auto;
+      }
+    body {
+        padding: 3em 3em;
+    }
+}
