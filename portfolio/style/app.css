@@ -5,12 +5,12 @@ body {
     margin: auto;
 }
 
-
-/* choose a light or dark theme to add to the body tag. */
-.dark-theme {
-    background-color: #181414;
-    color: #fcfbfb;   
+p {
+    margin: 0;
+    padding: 0;
 }
+
+
 .light-theme {
     background-color: white;
     color: black;    
@@ -51,25 +51,29 @@ sub-font
     font-family: 'Roboto Condensed', sans-serif;
 }
 .sub-font {
-    font-family: 'Lora', serif;
+    font-family: 'Roboto', serif;
 }
-
 
 
 .headline {
     font-size: 3.5rem;
     line-height: 0.9;
     margin-bottom: 0.25rem;
-    margin-top: 1rem;
     font-weight: 700;
 }
 
 .body-text {
-    font-size: 1.25rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
     margin-top: 0.5rem;
-    margin-bottom: 3.75rem;
+    margin-bottom: 0.75rem;
+}
 
+.tag-text {
+    font-size: 0.8rem;
+    color: grey;
+    line-height: 1.4;
+    margin: 0.2rem;
 }
 
 .kicker {
@@ -101,7 +105,6 @@ sub-font
     font-size: 1.75rem;
     line-height: 0.9;
     margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
     font-weight: 700;
 }
 
@@ -154,15 +157,23 @@ sub-font
 .section {
     font-size: 1.25rem;
     line-height: 0.9;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     font-weight: 700;
     text-transform: uppercase;
 
 }
 
+.stories-air {
+    padding-bottom: 1em;
+}
+
 .link {
     color: black !important;
+}
+
+.link:hover {
+text-decoration: none;
 }
 
 .footer  {
