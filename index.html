@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css">
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -40,11 +44,20 @@
 
 <p class="bio">M.S. Data Journalism '19 @ Columbia University.<br>Former El Confidencial Data Journalism team, Agencia EFE, The Times.<br>Reporting, data analysis, visualizations and a bit of coding. <br>Also, I used to run 🦄 <a href="http://journocoders.com/mad/" target="_blank"> <span class="journocoders">Journocoders Madrid</span> </a>🦄</p>
 
+<!-- buttons -->
+
+<div class="btn-row">
+<p style="padding-bottom: 0.6em"> Looking for a particular story, project or investigation? </p>
+<p class="description"> Language: <button class="btn" data-category="en"> English </button> <button class="btn" data-category="es"> Spanish </button> </p>
+<p class="description"> Stories : <button class="btn" data-category="ddj"> Data-driven </button> <button class="btn" data-category="interactive"> Interactive </button> <button class="btn" data-category="automation"> Automation </button> </p>
+</div>
+
+
 <!-- Portfolio Gallery Grid -->
 
 <div class="row">
 
-  <div class="column">
+  <div class="column es interactive">
     <a href="https://www.elconfidencial.com/espana/2018-03-08/brecha-salarial-mujer-trabajo_1532168/" target="_blank">
     <div class="content">
       <p class="date nomargin">March '18</p>
@@ -55,7 +68,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column en interactive">
     <a href="https://interactive.aljazeera.com/aje/2018/coding-like-a-girl/index.html" target="_blank">
     <div class="content">
       <p class="date nomargin">Feb '18</p>
@@ -66,7 +79,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/espana/2017-11-28/desigualdad-equiparacion-salarial-medicos-profesores-autonomias_1483224/" target="_blank">
     <div class="content">
       <p class="date nomargin">Nov '17</p>
@@ -77,7 +90,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/economia/paradise-papers/2017-11-05/que-es-paradise-papers-claves_1470640/" target="_blank">
     <div class="content">
       <p class="date nomargin">Nov '17</p>
@@ -88,7 +101,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/espana/2017-10-13/evolucion-demografica-espana-ano2000_1440888/" target="_blank">
     <div class="content">
       <p class="date nomargin">Oct '17</p>
@@ -99,7 +112,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/espana/cataluna/2017-09-25/fact-checking-cataluna_1444075/" target="_blank">
     <div class="content">
       <p class="date nomargin">Sep '17</p>
@@ -110,7 +123,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/cultura/2017-10-02/banda-sonora-democracia-40-principales-musica_1451479/" target="_blank">
     <div class="content">
       <p class="date nomargin">Oct '17</p>
@@ -121,7 +134,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/mundo/2017-08-28/isis-atentados-yihadistas-terror-europa_1433862/" target="_blank">
     <div class="content">
       <p class="date nomargin">Aug '16</p>
@@ -132,7 +145,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://www.elconfidencial.com/mundo/2017-05-04/elecciones-francesas-segunda-vuelta-lepen-macron-voto-variables-sociodemograficas-quien-ganara_1376118/" target="_blank">
     <div class="content">
       <p class="date nomargin">May '17</p>
@@ -143,7 +156,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://blogs.elconfidencial.com/espana/la-chistera/2016-12-22/lachistera-verdades-mentiras-unicornios-xiilegislatura-politica-espana_1307747/" target="_blank">
     <div class="content">
       <p class="date nomargin">Jan '17</p>
@@ -154,7 +167,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es ddj">
     <a href="https://lab.elconfidencial.com/as%C3%AD-construimos-un-modelo-para-conocer-qu%C3%A9-factores-sociodemogr%C3%A1ficos-influyeron-en-el-voto-el-20-d-6e5cd298929d" target="_blank">
     <div class="content">
       <p class="date nomargin">Oct '16</p>
@@ -165,7 +178,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column en ddj">
     <a href="http://thertbf.github.io" target="_blank">
     <div class="content">
       <p class="date nomargin">Feb '16</p>
@@ -176,7 +189,18 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column en interactive">
+    <a href="http://desmanesdelfutbol.com/" target="_blank">
+    <div class="content">
+      <p class="date nomargin">Aug '15</p>
+      <img class="itemimage" src="img/bigbankswomen.png" alt="Mountains" style="width:100%">
+      <h3><span class="title">Women in financial leadership positions</span></h3>
+      <p class="description">An investigation unveils how eight big British banks and financial institutions, such as Rothschild and Barclays, each have less than 10% of their top posts filled by women.</p>
+     </a>
+    </div>
+  </div>
+
+  <div class="column es interactive">
     <a href="http://desmanesdelfutbol.com/" target="_blank">
     <div class="content">
       <p class="date nomargin">Jan '15</p>
@@ -187,7 +211,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column en automation">
     <a href="https://ejb.github.io/2014/10/19/crowdtip-at-build-the-news.html" target="_blank">
     <div class="content">
       <p class="date nomargin">Nov '14</p>
@@ -198,7 +222,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="column es interactive">
     <a href="http://lab.rtve.es/muro-berlin/" target="_blank">
     <div class="content">
       <p class="date nomargin">Oct '14</p>
@@ -237,6 +261,11 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-73655603-1', 'auto');
 ga('send', 'pageview');
 </script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" ></script>
+
+<script type="text/javascript" src="js/main.js"></script> 
+
 
 <!-- Google Analytics ends -->
 </body>

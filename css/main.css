@@ -303,6 +303,33 @@ ul {
   margin: 0 10px;
 }
 
+/** Buttons **/
+
+.btn {
+    border: 1.2px solid black;
+    background-color: #fff;
+    color: black;
+    padding: 0.8em 0.8em;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 0.2em 0em;
+}
+
+.btn-row {
+  padding: 1.5em 0 2em 2em;
+}
+
+.btn:hover {
+    background-color: #fbffee;
+    color: black;
+}
+
+.btn-selected {
+  background-color: #fbffee;
+}
+
 .demo-icon
 {
   font-family: "fontello";
@@ -338,6 +365,8 @@ ul {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
+
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media (max-width: 3000px) {
