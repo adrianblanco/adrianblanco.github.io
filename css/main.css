@@ -249,12 +249,37 @@ p {
     height: 28em;
 }
 
+.info {
+  position: relative;
+  padding-bottom: 1.1em;
+}
+
 .description {
     font-size: 0.95em;
     text-align: left;
     text-justify: inter-character;
     word-break: normal;
     hyphens: auto;
+}
+
+.left-half {
+  /** background-color: #ff9e2c; **/
+  position: absolute;
+  left: 0px;
+  width: 70%;
+}
+
+.right-half {
+  /** background-color: #b6701e; **/
+  position: absolute;
+  right: 0px;
+  width: 30%;
+}
+
+.skills {
+  text-align: left;
+  font-size: 0.7em;
+  padding-bottom: 0.5em;
 }
 
 .date {
