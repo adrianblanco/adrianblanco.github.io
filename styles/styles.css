@@ -1,97 +1,424 @@
-body {
-  font-size: 24px;
-  background-color: #f7f7f7;
+/* ==================== SHARED STYLES ==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Fira Code', monospace;
+  line-height: 1.6;
+  color: #333;
+  background-color: rgb(247, 247, 247);
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0066cc;
+}
+
+/* Footer */
+footer {
+  background-color: rgb(247, 247, 247);
+  color: #333;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+
+/* ==================== HOME ==================== */
+
+/* Home Section */
 .home {
-  height: 92vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center; /* Align horizontal */
-  align-items: center; /* Align vertical */
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background-color: #ddd;
 }
 
 .bio {
-  max-width: 640px;
-  margin: 14px;
+  max-width: 600px;
 }
 
-h1 {
-  font-family: 'Pixelify Sans', serif;
-  font-size: 36px;
-}
-
-p {
-  font-family: 'Fira Code';
-  font-size: 20px;
-  line-height: 32px;
+.bio h1 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #222;
 }
 
 .wave {
-  animation-name: wave-animation;  /* @keyframes element below */
-  animation-duration: 2.5s;        /* Speed up or slow down */
-  animation-iteration-count: infinite;  /* Infinite waving */
-  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
   display: inline-block;
   font-size: 36px;
   margin-right: 4px;
 }
 
 @keyframes wave-animation {
-    0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
-   20% { transform: rotate(-8.0deg) }
-   30% { transform: rotate(14.0deg) }
-   40% { transform: rotate(-4.0deg) }
-   50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-  100% { transform: rotate( 0.0deg) }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
-footer {
-  font-size: 16px;
-  color:gray;
-  margin: 0 14px;
+.bio p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #555;
 }
 
-.footer-container {
-  max-width: 640px;
+.bio a {
+  color: #0066cc;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.bio a:hover {
+  border-bottom-color: #0066cc;
+}
+
+.bio-social {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  justify-content: space-between;
-  font-family: 'Roboto';
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.manicule {
-  font-size: 24px;
-  margin-top: -10px;
+.bio-social a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.contact {
-  display: flex;
-  flex-direction: row;
+.bio-social a:hover {
+  color: #0066cc;
+  border-bottom-color: #0066cc;
+}
+
+/* Projects Section */
+.projects {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  background-color: rgb(247, 247, 247);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 600px;
+  margin: 0 auto;
   width: 100%;
+}
+
+.projects h2 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #222;
+  font-weight: 500;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-card {
+  padding: 3rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-card:last-child {
+  border-bottom: none;
+}
+
+.project-meta {
+  display: flex;
   justify-content: space-between;
-  font-family: 'Roboto';
-  font-size: '6px';
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-a {
+.project-date {
+  text-align: left;
+}
+
+.project-source {
+  text-align: right;
+}
+
+/* LITE VERSION: Images removed */
+
+.project-content {
+  font-family: Georgia, serif;
+}
+
+.project-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #222;
+  font-weight: normal;
+}
+
+.project-card h3 a {
+  color: #222;
   text-decoration: none;
-  color: blue;
+  transition: color 0.3s ease;
 }
 
-a:visited {
+.project-card h3 a:hover {
+  color: #0066cc;
+}
+
+.project-card p {
+  font-family: Georgia, serif;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Sprite Character */
+.sprite-character {
+  position: fixed;
+  bottom: 20px;
+  left: -100px;
+  width: 64px;
+  height: 64px;
+  background-image: url('img/sprite.png');
+  background-size: 640px 64px;
+  background-repeat: no-repeat;
+  z-index: 999;
+  opacity: 0;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.sprite-character.walking {
+  animation: walk 20s linear, sprite-walk 1s steps(1) infinite;
+  opacity: 1;
+}
+
+/* Walk across screen */
+@keyframes walk {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+
+/* Animate through all 10 sprite frames for smooth walking */
+@keyframes sprite-walk {
+  0% { background-position: 0 0; }
+  10% { background-position: -64px 0; }
+  20% { background-position: -128px 0; }
+  30% { background-position: -192px 0; }
+  40% { background-position: -256px 0; }
+  50% { background-position: -320px 0; }
+  60% { background-position: -384px 0; }
+  70% { background-position: -448px 0; }
+  80% { background-position: -512px 0; }
+  90% { background-position: -576px 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+
+/* ==================== ABOUT ==================== */
+
+/* About Section */
+.about-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-header h1 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.about-content {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+.about-content h2 {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.about-content a {
+  color: #0066cc;
   text-decoration: none;
-  color: #a1a1a1;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.about-content a:hover {
+  border-bottom-color: #0066cc;
 }
 
 
+/* ==================== RESPONSIVE ==================== */
 
+@media (max-width: 768px) {
+  /* Navigation */
+  nav {
+    padding: 1rem;
+  }
 
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
 
+  /* Home */
+  .bio h1 {
+    font-size: 2rem;
+  }
 
+  .bio p {
+    font-size: 1rem;
+  }
 
+  .bio-social {
+    gap: 1rem;
+  }
 
+  .bio-social a {
+    font-size: 0.85rem;
+  }
 
+  .projects {
+    padding: 4rem 2rem;
+  }
+
+  .projects h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-meta {
+    font-size: 0.75rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .sprite-character {
+    width: 48px;
+    height: 48px;
+    background-size: 480px 48px;
+  }
+  
+  @keyframes sprite-walk {
+    0% { background-position: 0 0; }
+    10% { background-position: -48px 0; }
+    20% { background-position: -96px 0; }
+    30% { background-position: -144px 0; }
+    40% { background-position: -192px 0; }
+    50% { background-position: -240px 0; }
+    60% { background-position: -288px 0; }
+    70% { background-position: -336px 0; }
+    80% { background-position: -384px 0; }
+    90% { background-position: -432px 0; }
+    100% { background-position: 0 0; }
+  }
+
+  /* About */
+  .about-container {
+    padding-top: 7rem;
+  }
+
+  .about-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-content {
+    font-size: 1rem;
+  }
+  
+  .about-content h2 {
+    font-size: 1.1rem;
+  }
+}

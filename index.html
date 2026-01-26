@@ -4,46 +4,212 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adrián Blanco Ramos</title>
-  <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>">
-  <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-
+  <link href='https://fonts.googleapis.com/css?family=Pixelify+Sans' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Code' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/styles.css">
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFJMH3EXM4"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4N8QE8SXG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-WFJMH3EXM4');
+    gtag('config', 'G-H4N8QE8SXG');
   </script>
-
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#" id="nav-home">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <!-- Home Section -->
   <div class="home">
     <div class="bio">
-    <h1><span class="wave">👋</span> Hola, I’m Adrián.</h1>
-    <p>I code, design, illustrate and edit data-driven visual stories.</p>
-    <p>I work as a Graphics editor at The Washington Post.</p>
-    <p>You can see my most recent work <a href="https://www.washingtonpost.com/people/adrian-blanco/" target="_blank">here</a>.</p>
+      <h1><span class="wave">👋</span> Hola, I'm Adrián.</h1>
+      <p>I code, design, illustrate and edit data-driven visual stories.</p>
+      <p>I work as a Graphics editor at The Washington Post.</p>
+      <p>You can see my most recent work on <a href="https://www.washingtonpost.com/people/adrian-blanco/" target="_blank">my author page</a> or in <a href="#projects">my portfolio</a> below.</p>
+      
+      <div class="bio-social">
+        <a href="mailto:adrianblancoramos@proton.me">Mail</a>
+        <a href="https://www.linkedin.com/in/adrianblancor/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/adrianblancor_/" target="_blank">Instagram</a>
+        <a href="https://twitter.com/AdrianBlancoR" target="_blank">Twitter</a>
+        <a href="https://bsky.app/profile/yourusername.bsky.social" target="_blank">Bluesky</a>
+      </div>
     </div>
   </div>
-</body>
 
-<footer>
-  <div class="footer-container">
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="projects-container">
+      <h2>Projects</h2>
+      <div class="projects-grid" id="projects-grid">
+        <div class="loading">Loading projects...</div>
+      </div>
+    </div>
+    
+    <!-- Sprite Character -->
+    <div class="sprite-character" id="sprite"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built with &lt;3 by Adrián Blanco Ramos © 2026. All rights reserved.</p>
+  </footer>
+
+  <!-- Load projects data from external JS file -->
+  <script src="projects.js"></script>
   
-  <div class="contact">
-    <!-- <span class="manicule">&#9758;</span>  -->
-    <div><a href="mailto:adrianblancoramos@proton.me">Mail</a></div>
-    <div><a href="https://www.linkedin.com/in/adrianblancor/">LinkedIn</a></div>
-    <div><a href="https://www.instagram.com/adrianblancor_/">Instagram</a></div>
-    <div><a href="https://twitter.com/AdrianBlancoR">Twitter</a></div>
-  </div>
-  </div>
-</footer>
+  <script>
+    // Function to create project cards
+    function createProjectCard(project) {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      
+      // Meta info (date and source)
+      const meta = document.createElement('div');
+      meta.className = 'project-meta';
+      
+      const date = document.createElement('div');
+      date.className = 'project-date';
+      date.textContent = project.date || '';
+      
+      const source = document.createElement('div');
+      source.className = 'project-source';
+      source.textContent = project.source || '';
+      
+      meta.appendChild(date);
+      meta.appendChild(source);
+      
+      // Content (NO IMAGES in lite version)
+      const content = document.createElement('div');
+      content.className = 'project-content';
+      
+      const title = document.createElement('h3');
+      const link = document.createElement('a');
+      // Use gift_link if available, otherwise use regular link
+      link.href = project.gift_link || project.link;
+      link.textContent = project.title;
+      link.target = '_blank';
+      title.appendChild(link);
+      
+      const description = document.createElement('p');
+      description.textContent = project.description;
+      
+      content.appendChild(title);
+      content.appendChild(description);
+      
+      card.appendChild(meta);
+      card.appendChild(content);
+      
+      return card;
+    }
 
+    // Main function to load and display projects
+    function loadProjects() {
+      const grid = document.getElementById('projects-grid');
+      
+      try {
+        // Check if PROJECTS_DATA exists
+        if (typeof PROJECTS_DATA === 'undefined') {
+          throw new Error('PROJECTS_DATA is not defined. Make sure projects.js is loaded.');
+        }
+        
+        // Use data from projects.js file
+        const projects = PROJECTS_DATA;
+        
+        grid.innerHTML = '';
+        
+        projects.forEach(project => {
+          const card = createProjectCard(project);
+          grid.appendChild(card);
+        });
+        
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        grid.innerHTML = '<div class="loading">Error loading projects. Make sure projects.js file exists in the same folder.</div>';
+      }
+    }
 
+    // Update navigation based on scroll position
+    function updateNavigation() {
+      const homeSection = document.querySelector('.home');
+      const projectsSection = document.querySelector('.projects');
+      const navHome = document.getElementById('nav-home');
+      
+      const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+      const scrollPosition = window.scrollY + 100; // Add offset for better UX
+      
+      if (scrollPosition > homeBottom) {
+        // In projects section
+        navHome.textContent = 'Home';
+        navHome.href = '#';
+      } else {
+        // In home section
+        navHome.textContent = 'Projects';
+        navHome.href = '#projects';
+      }
+    }
+
+    // Sprite walking animation - cycles through all 10 frames
+    let spriteTimeout;
+
+    function walkSprite() {
+      const sprite = document.getElementById('sprite');
+      
+      // Start walking animation
+      sprite.classList.add('walking');
+      
+      // Remove the walking class after animation completes (20 seconds)
+      setTimeout(() => {
+        sprite.classList.remove('walking');
+      }, 20000);
+      
+      // Schedule next walk (random time between 20-45 seconds)
+      const nextWalk = Math.random() * 25000 + 20000;
+      spriteTimeout = setTimeout(walkSprite, nextWalk);
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        
+        if (href === '#' || href === '') {
+          // Scroll to top
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Load projects when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      loadProjects();
+      updateNavigation();
+      
+      // Start sprite walking animation after a short delay
+      setTimeout(() => {
+        walkSprite();
+      }, 3000);
+    });
+
+    // Update navigation on scroll
+    window.addEventListener('scroll', updateNavigation);
+  </script>
+</body>
 </html>

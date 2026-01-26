@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Adrián Blanco Ramos</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>">
+  <link href='https://fonts.googleapis.com/css?family=Pixelify+Sans' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Code' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4N8QE8SXG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H4N8QE8SXG');
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+  </nav>
+
+  <!-- About Content -->
+  <div class="about-container">
+    <div class="about-header">
+      <h1>About</h1>
+    </div>
+
+    <div class="about-content" id="about-content">
+      <!-- Content will be loaded from about.js -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built with &lt;3 by Adrián Blanco Ramos © 2026. All rights reserved.</p>
+  </footer>
+
+  <!-- Load about data from external JS file -->
+  <script src="about.js"></script>
+  
+  <script>
+    // Function to load and display about content
+    function loadAboutContent() {
+      const contentDiv = document.getElementById('about-content');
+      
+      try {
+        // Check if ABOUT_DATA exists
+        if (typeof ABOUT_DATA === 'undefined') {
+          throw new Error('ABOUT_DATA is not defined. Make sure about.js is loaded.');
+        }
+        
+        // Clear any existing content
+        contentDiv.innerHTML = '';
+        
+        // Create paragraph elements from the data
+        ABOUT_DATA.paragraphs.forEach(paragraphText => {
+          const p = document.createElement('p');
+          p.textContent = paragraphText;
+          contentDiv.appendChild(p);
+        });
+        
+      } catch (error) {
+        console.error('Error loading about content:', error);
+        contentDiv.innerHTML = '<p>Error loading content. Make sure about.js file exists in the same folder.</p>';
+      }
+    }
+
+    // Load about content when page loads
+    window.addEventListener('DOMContentLoaded', loadAboutContent);
+  </script>
+</body>
+</html>
