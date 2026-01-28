@@ -28,16 +28,15 @@
   <div class="home">
     <div class="bio">
       <h1><span class="wave">👋</span> Hola, I'm Adrián.</h1>
-      <p>I code, design, illustrate and edit data-driven visual stories.</p>
+      <p>I analyze data, code, design, illustrate and edit data-driven visual stories.</p>
       <p>I work as a Graphics editor at The Washington Post.</p>
       <p>You can see my most recent work on <a href="https://www.washingtonpost.com/people/adrian-blanco/" target="_blank">my author page</a> or in <a href="#projects">my portfolio</a> below.</p>
       
       <div class="bio-social">
-        <a href="mailto:adrianblancoramos@proton.me">Mail</a>
         <a href="https://www.linkedin.com/in/adrianblancor/" target="_blank">LinkedIn</a>
         <a href="https://www.instagram.com/adrianblancor_/" target="_blank">Instagram</a>
-        <a href="https://twitter.com/AdrianBlancoR" target="_blank">Twitter</a>
         <a href="https://bsky.app/profile/yourusername.bsky.social" target="_blank">Bluesky</a>
+        <a href="mailto:adrianblancoramos@proton.me">Mail</a>
       </div>
     </div>
   </div>
@@ -68,6 +67,7 @@
     function createProjectCard(project) {
       const card = document.createElement('div');
       card.className = 'project-card';
+      card.id = project.id; // Add unique ID
       
       // Meta info (date and source)
       const meta = document.createElement('div');
@@ -84,7 +84,37 @@
       meta.appendChild(date);
       meta.appendChild(source);
       
-      // Content (NO IMAGES in lite version)
+      // Image or Video
+      if (project.image) {
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'project-image';
+        
+        if (project.isVideo) {
+          // Create video element
+          const video = document.createElement('video');
+          video.src = project.image;
+          video.width = 600;
+          video.height = 150;
+          video.loop = true;
+          video.muted = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          imageDiv.appendChild(video);
+        } else {
+          // Create image element
+          const img = document.createElement('img');
+          img.src = project.image;
+          img.alt = project.title;
+          imageDiv.appendChild(img);
+        }
+        
+        card.appendChild(meta);
+        card.appendChild(imageDiv);
+      } else {
+        card.appendChild(meta);
+      }
+      
+      // Content
       const content = document.createElement('div');
       content.className = 'project-content';
       
@@ -102,7 +132,6 @@
       content.appendChild(title);
       content.appendChild(description);
       
-      card.appendChild(meta);
       card.appendChild(content);
       
       return card;

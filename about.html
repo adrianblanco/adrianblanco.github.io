@@ -60,7 +60,7 @@
         // Create paragraph elements from the data
         ABOUT_DATA.paragraphs.forEach(paragraphText => {
           const p = document.createElement('p');
-          p.textContent = paragraphText;
+          p.innerHTML = paragraphText; // Use innerHTML to support links
           contentDiv.appendChild(p);
         });
         

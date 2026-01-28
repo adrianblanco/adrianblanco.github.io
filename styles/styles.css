@@ -197,7 +197,42 @@ footer p {
   text-align: right;
 }
 
-/* LITE VERSION: Images removed */
+.project-image {
+  width: 100%;
+  max-width: 600px;
+  height: 150px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  background-color: rgb(247, 247, 247);
+  line-height: 0;
+  position: relative;
+}
+
+.project-image img,
+.project-image video {
+  width: calc(100% + 4px);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: -2px;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 150px;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #adb5bd;
+  font-size: 3rem;
+}
 
 .project-content {
   font-family: Georgia, serif;
@@ -236,7 +271,7 @@ footer p {
   left: -100px;
   width: 64px;
   height: 64px;
-  background-image: url('img/sprite.png');
+  background-image: url('../img/sprite.png');
   background-size: 640px 64px;
   background-repeat: no-repeat;
   z-index: 999;
@@ -383,6 +418,18 @@ footer p {
 
   .project-card h3 {
     font-size: 1.3rem;
+  }
+
+  /* Keep image ratio on mobile */
+  .project-image {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 1;
+  }
+
+  .project-image img,
+  .project-image video {
+    height: 100%;
   }
 
   .sprite-character {
