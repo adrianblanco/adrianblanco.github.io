@@ -200,7 +200,7 @@ footer p {
 .project-image {
   width: 100%;
   max-width: 600px;
-  height: 150px;
+  height: 400px;
   margin-bottom: 1.5rem;
   overflow: hidden;
   background-color: rgb(247, 247, 247);
@@ -225,7 +225,7 @@ footer p {
 
 .project-image-placeholder {
   width: 100%;
-  height: 150px;
+  height: 400px;
   background-color: #e9ecef;
   display: flex;
   align-items: center;
@@ -374,6 +374,254 @@ footer p {
 }
 
 
+/* ==================== TOOLS & BOOKS ==================== */
+
+.list-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+.list-header {
+  margin-bottom: 4rem;
+}
+
+.list-header h1 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.list-intro {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+.list-section-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.list-card {
+  padding: 2rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-card:last-child {
+  border-bottom: none;
+}
+
+.list-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.list-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  color: #222;
+  font-weight: normal;
+  margin-bottom: 0.2rem;
+}
+
+.list-card h3 a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list-card h3 a:hover {
+  color: #0066cc;
+}
+
+.list-card-author {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: #999;
+  margin-top: 0.15rem;
+}
+
+.list-card-desc,
+.list-card > p {
+  font-family: Georgia, serif;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.list-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.list-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: #888;
+  border: 1px solid #ddd;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+
+/* ==================== STACK ==================== */
+
+.stack-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+  min-height: 100vh;
+}
+
+.stack-header {
+  max-width: 600px;
+  margin-bottom: 4rem;
+}
+
+.stack-header h1 {
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+.stack-anchors {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  position: static;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.stack-anchors a {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-left: 0;
+  font-weight: 500;
+}
+
+.stack-anchors a:hover {
+  color: #222;
+}
+
+.stack-section {
+  margin-bottom: 5rem;
+}
+
+.stack-section-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.stack-category-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  grid-column: 1 / -1;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.stack-card {
+  padding: 1.25rem;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stack-card h4 {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #222;
+  margin: 0;
+}
+
+.stack-card h4 a {
+  color: #222;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.stack-card h4 a:hover {
+  color: #0066cc;
+}
+
+.stack-card p {
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.stack-card-author {
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.78rem !important;
+  color: #aaa !important;
+}
+
+.stack-empty {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #aaa;
+  grid-column: 1 / -1;
+}
+
+/* Active nav link */
+.nav-active {
+  color: #0066cc !important;
+}
+
+
 /* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 768px) {
@@ -424,7 +672,7 @@ footer p {
   .project-image {
     max-width: 100%;
     height: auto;
-    aspect-ratio: 4 / 1;
+    aspect-ratio: 3 / 2;
   }
 
   .project-image img,
@@ -450,6 +698,37 @@ footer p {
     80% { background-position: -384px 0; }
     90% { background-position: -432px 0; }
     100% { background-position: 0 0; }
+  }
+
+  /* Stack */
+  .stack-container {
+    padding-top: 6rem;
+  }
+
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-category-title {
+    margin-top: 1.5rem;
+  }
+
+  /* Tools & Books (legacy) */
+  .list-container {
+    padding-top: 7rem;
+  }
+
+  .list-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .list-card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .list-card h3 {
+    font-size: 1.1rem;
   }
 
   /* About */
