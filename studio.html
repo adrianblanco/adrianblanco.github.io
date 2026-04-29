@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Studio — tools, books, magazines and sites that inspire Adrián Blanco Ramos.">
+  <meta name="author" content="Adrián Blanco Ramos">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adrianblancoramos.com/studio.html">
+  <meta property="og:title" content="Studio - Adrián Blanco Ramos">
+  <meta property="og:description" content="An evolving collection of the instruments and references I keep nearby.">
+  <meta property="og:image" content="https://adrianblancoramos.com/img/promo.jpg">
+
+  <title>Studio - Adrián Blanco Ramos</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>">
+  <link href='https://fonts.googleapis.com/css?family=Pixelify+Sans' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Code' rel='stylesheet'>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4N8QE8SXG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H4N8QE8SXG');
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="studio.html" class="nav-active">Studio</a>
+  </nav>
+
+  <div class="stack-container">
+
+    <div class="stack-header">
+      <h1>Studio</h1>
+      <p class="list-intro">Welcome to my digital studio, an evolving and regularly updated collection of the instruments and references I keep nearby. This space houses the tools, books, magazines, and sites I regularly use, return to, or find genuinely inspiring. I consider myself tool-agnostic, choosing the best instrument for each specific narrative or technical challenge rather than being tied to a single ecosystem.</p>
+      <nav class="stack-anchors">
+        <a href="#toolkit">Tools</a>
+        <a href="#library">Library</a>
+        <a href="#print">Print and Ink</a>
+        <a href="#corners">Corners of the Internet</a>
+      </nav>
+    </div>
+
+    <section id="toolkit" class="stack-section">
+      <h2 class="stack-section-title">Tools</h2>
+      <div class="stack-grid" id="toolkit-grid"></div>
+    </section>
+
+    <section id="library" class="stack-section">
+      <h2 class="stack-section-title">Library</h2>
+      <div class="stack-grid" id="library-grid"></div>
+    </section>
+
+    <section id="print" class="stack-section">
+      <h2 class="stack-section-title">Print and Ink</h2>
+      <div class="stack-grid" id="print-grid"></div>
+    </section>
+
+    <section id="corners" class="stack-section">
+      <h2 class="stack-section-title">Corners of the Internet</h2>
+      <div class="stack-grid" id="corners-grid"></div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Built with &lt;3 by Adrián Blanco Ramos © 2026. All rights reserved.</p>
+  </footer>
+
+  <script src="data/studio-data.js"></script>
+  <script src="data/studio.js"></script>
+  <script>
+    function tags(arr) {
+      return '';
+    }
+
+    function loadToolkit() {
+      const grid = document.getElementById('toolkit-grid');
+      const categories = {};
+      STUDIO.toolkit.forEach(t => {
+        if (!categories[t.category]) categories[t.category] = [];
+        categories[t.category].push(t);
+      });
+      Object.entries(categories).forEach(([cat, items]) => {
+        const heading = document.createElement('h3');
+        heading.className = 'stack-category-title';
+        heading.textContent = cat;
+        grid.appendChild(heading);
+        const catDesc = STUDIO._meta.categories[cat];
+        if (catDesc) {
+          const p = document.createElement('p');
+          p.className = 'stack-category-desc';
+          p.textContent = catDesc;
+          grid.appendChild(p);
+        }
+        items.forEach(tool => {
+          grid.innerHTML += `
+            <div class="stack-card" id="${tool.id}">
+              <div class="stack-card-top">
+                <h4><a href="${tool.url}" target="_blank">${tool.name}</a></h4>
+                <div class="list-tags">${tags(tool.tags)}</div>
+              </div>
+              <p>${tool.description}</p>
+            </div>`;
+        });
+      });
+    }
+
+    function loadLibrary() {
+      const grid = document.getElementById('library-grid');
+      STUDIO.library.forEach(book => {
+        grid.innerHTML += `
+          <div class="stack-card" id="${book.id}">
+            <div class="stack-card-top">
+              <h4><a href="${book.url}" target="_blank">${book.name}</a></h4>
+              <div class="list-tags">${tags(book.tags)}</div>
+            </div>
+            <p class="stack-card-author">${book.author}${book.year ? ' · ' + book.year : ''}</p>
+            <p>${book.description}</p>
+          </div>`;
+      });
+    }
+
+    function loadSection(key, gridId) {
+      const grid = document.getElementById(gridId);
+      STUDIO[key].forEach(item => {
+        grid.innerHTML += `
+          <div class="stack-card" id="${item.id}">
+            <div class="stack-card-top">
+              <h4><a href="${item.url}" target="_blank">${item.name}</a></h4>
+              <div class="list-tags">${tags(item.tags)}</div>
+            </div>
+            <p>${item.description}</p>
+          </div>`;
+      });
+    }
+
+    function injectSectionDesc(sectionKey, titleEl) {
+      const desc = STUDIO._meta.sections[sectionKey];
+      if (!desc) return;
+      const p = document.createElement('p');
+      p.className = 'stack-section-desc';
+      p.textContent = desc;
+      titleEl.insertAdjacentElement('afterend', p);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.stack-section').forEach(section => {
+        injectSectionDesc(section.id, section.querySelector('.stack-section-title'));
+      });
+      loadToolkit();
+      loadLibrary();
+      loadSection('print', 'print-grid');
+      loadSection('corners', 'corners-grid');
+    });
+  </script>
+</body>
+</html>

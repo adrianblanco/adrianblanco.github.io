@@ -402,6 +402,14 @@ footer p {
   line-height: 1.7;
 }
 
+.list-wip {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
 .list-section-title {
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
@@ -541,6 +549,25 @@ footer p {
   margin-bottom: 2rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #ddd;
+}
+
+.stack-section-desc {
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.stack-category-desc {
+  font-family: Georgia, serif;
+  font-size: 0.88rem;
+  color: #aaa;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  grid-column: 1 / -1;
+  line-height: 1.55;
 }
 
 .stack-category-title {
